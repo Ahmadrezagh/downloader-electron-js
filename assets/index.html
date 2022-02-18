@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/css/tailwind.css" />
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+    <title>Soft360.co</title>
+</head>
+
+<body>
+    <main class="flex min-h-full">
+        <div class="bg-[#26273B] w-[280px] min-w-[280px] min-h-full p-4 sidebar">
+            <div>
+                <h1 class="font-bold text-3xl">Soft360.co</h1>
+                <span class="opacity-80 mt-6 mb-4 block">Categories</span>
+            </div>
+            <ul class="flex sidebar-menu flex-col gap-2">
+                <li class="categories" data-slug="security">
+                    <a href="#" class="flex items-center gap-4 py-3 px-2">
+                        <img src="./media/categories/security.svg" class="svg-icon">
+                        <span>Security</span>
+                    </a>
+                </li>
+                <li class="categories" data-slug="network">
+                    <a href="#" class="flex items-center gap-4 py-3 px-2">
+                        <img src="./media/categories/browsers.svg" class="svg-icon">
+                        <span>Internet</span>
+                    </a>
+                </li>
+                <li class="categories" data-slug="remote-access">
+                    <a href="#" class="flex items-center gap-4 py-3 px-2">
+                        <img src="./media/categories/communications.svg" class="svg-icon">
+                        <span>Remote Access</span>
+                    </a>
+                </li>
+                <li class="categories" data-slug="download-managers">
+                    <a href="#" class="flex items-center gap-4 py-3 px-2">
+                        <img src="./media/categories/developer-tools.svg" class="svg-icon">
+                        <span>Download Manager</span>
+                    </a>
+                </li>
+                <li class="categories" data-slug="browser">
+                    <a href="#" class="flex items-center gap-4 py-3 px-2">
+                        <img src="./media/categories/internet.svg" class="svg-icon">
+                        <span>Browser</span>
+                    </a>
+                </li>
+                <li class="categories" data-slug="game">
+                    <a href="#" class="flex items-center gap-4 py-3 px-2">
+                        <img src="./media/categories/graphic-design.svg" class="svg-icon">
+                        <span>Game</span>
+                    </a>
+                </li>
+                <li class="categories" data-slug="utilities">
+                    <a href="#" class="flex items-center gap-4 py-3 px-2">
+                        <img src="./media/categories/utilities.svg" class="svg-icon">
+                        <span>Utilities</span>
+                    </a>
+                </li>
+                <li class="categories" data-slug="recover-backup">
+                    <a href="#" class="flex items-center gap-4 py-3 px-2">
+                        <img src="./media/categories/compression-backup.svg" class="svg-icon">
+                        <span>Recovery & Backup</span>
+                    </a>
+                </li>
+                <li class="categories" data-slug="video-audio">
+                    <a href="#" class="flex items-center gap-4 py-3 px-2">
+                        <img src="./media/categories/audio-video.svg" class="svg-icon">
+                        <span>Video & Audio</span>
+                    </a>
+                </li>
+                <li class="categories" data-slug="adobe">
+                    <a href="#" class="flex items-center gap-4 py-3 px-2">
+                        <img src="./media/categories/photos.svg" class="svg-icon">
+                        <span>Adobe</span>
+                    </a>
+                </li>
+                <li class="categories" data-slug="premium-account">
+                    <a href="#" class="flex items-center gap-4 py-3 px-2">
+                        <img src="./media/categories/free-account.svg" class="svg-icon">
+                        <span>Free Account</span>
+                    </a>
+                </li>
+                <li class="categories" data-slug="crypto">
+                    <a href="#" class="flex items-center gap-4 py-3 px-2">
+                        <img src="./media/categories/crypto.svg" class="svg-icon">
+                        <span>Crypto</span>
+                    </a>
+                </li>
+                <li class="categories" data-slug="education">
+                    <a href="#" class="flex items-center gap-4 py-3 px-2">
+                        <img src="./media/categories/education.svg" class="svg-icon">
+                        <span>Education</span>
+                    </a>
+                </li>
+                <li class="categories" data-slug="other">
+                    <a href="#" class="flex items-center gap-4 py-3 px-2">
+                        <img src="./media/categories/other-software.svg" class="svg-icon">
+                        <span>Other Software</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="pis-[280px] h-full p-4 flex-grow">
+            <div class="flex mb-8 justify-between items-center">
+                <div class="min-w-[3rem] flex justify-center items-center">
+                    <button type="button" id="downloads">
+                        <img src="./media/download.svg">
+                    </button>
+                </div>
+                <div class="flex gap-4 items-center">
+                    <div class="search-bar">
+                        <img src="./media/search.svg" class="search-bar__icon">
+                        <input type="text" class="search-bar__input" id="search_bar">
+                    </div>
+                    <div class="notifications">
+                        <button type="button" class="notifications__button" id="notify">
+                            <span class="bullet"></span>
+                            <img src="./media/notifications.svg">
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <ul class="flex gap-4 flex-col" id="app-list">
+                
+            </ul>
+        </div>
+    </main>
+    <script src="./assets/js/bundle.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script>
+
+const baseDomain = "https://soft360.ultimatesoft.co/api/v1/posts"
+
+$(document).ready(function(){
+                
+                
+                loadData(baseDomain)
+                $('#search_bar').on('keyup',function(){
+                    $('.categories').each(function() {
+                        $(this).removeClass("active")
+                    })
+                    let val = $('#search_bar').val();
+                    let newBaseDomain = baseDomain+"?key="+val;
+                    $("#app-list").empty()
+                    loadData(newBaseDomain);
+                })
+            })
+            
+
+
+            
+
+</script>
+<script>
+    function loadData(baseDomain){
+                $.ajax({
+                    url: baseDomain,
+                    dataType: 'json',
+                    success: function(data) {
+                        nextPageUrl = data.links.next;
+                        itemsLength = data.data.length;
+
+                        if(itemsLength > 0)
+                        {
+
+                            data.data.forEach(element => {
+                            $('#app-list').append(`
+                                <li class="download-card">
+                                                <div class="flex gap-2">
+                                                    <img src="${element.image}" class="object-contain w-full h-full">
+                                                </div>
+                                                <div>
+                                                    <span class="text-lg line-clamp-1">${element.title}</span>
+                                                    <span class="text-lg line-clamp-1">Version: 20.21</span>
+                                                    <span class="text-lg line-clamp-1">Published: ${element.date}</span>
+                                                </div>
+                                                <div class="gap-4 flex items-center justify-center download-info">
+                                                    <p class="line-clamp-3 opacity-75">
+                                                        ${element.content}
+                                                        </p>
+                                                    <div class="min-w-[3rem] flex justify-center items-center">
+                                                        <a  href="${element.dl}" class="download_link" >
+                                                            <img src="./media/download.svg">
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                `)
+
+                        })
+                        $(window).scroll(function() {
+                            if($(window).scrollTop() == $(document).height() - $(window).height()) {
+                                if(nextPageUrl)
+                                {
+                                    loadData(nextPageUrl)
+                                }
+                            }
+                        });
+
+                        }
+                        
+                        else{
+                            $('#app-list').append(`
+                            
+                            <div class="flex text-center justify-center flex-grow items-center flex-col min-h-[80vh]">
+                                <img src="./media/vector.png" class="w-64">
+                                <h1 class="font-bold mt-4 text-2xl text-primary">Soft360.co</h1>
+                                <strong class="block my-3">Sorry! No result found :(</strong>
+                                <p>We're sorry about what you were looking for. Please try another way.</p>
+                            </div>
+                            `)
+                        }
+                    
+                    },
+                    error: function(data) {
+                        console.log(data)
+                        alert("Check your internet connection")
+                    }
+                });
+            }
+
+            $("#downloads").on('click',function(){
+            $(location).prop('href', 'downloads.html')
+        })
+
+        $(".categories").on('click',(event)=>{
+            $('.categories').each(function() {
+                $(this).removeClass("active")
+            })
+            let slug = $(event.target).closest('li').data('slug')
+            $("#app-list").empty()
+            loadData(baseDomain+"/"+slug)
+            $(event.target).closest('li').addClass("active")
+        })
+</script>
+
+</body>
+
+</html>

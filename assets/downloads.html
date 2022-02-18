@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/css/tailwind.css" />
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+    <title>Soft360.co</title>
+</head>
+
+<body>
+    <main class="flex min-h-full">
+        <div class="h-full p-4 flex-grow">
+            <div class="flex mb-8 flex-col gap-4 sm:flex-row justify-between items-center">
+                <div class="min-w-[3rem] flex justify-center items-center">
+                    <h1 class="font-bold text-3xl">Soft360.co</h1>
+                </div>
+                <span class="text-green-600" >Download List</span>
+                <div class="flex gap-4 items-center">
+                    <div class="search-bar">
+                        <img src="./media/search.svg" class="search-bar__icon">
+                        <input type="text" class="search-bar__input" id="search">
+                    </div>
+                    <div class="notifications">
+                        <button type="button" class="notifications__button">
+                            <span class="bullet"></span>
+                            <img src="./media/notifications.svg">
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="grid grid-cols-12">
+                <div class="col-span-12 flex mb-8 justify-between items-center">
+                    <div>
+                        <button type="button" id="back">
+                            <img src="./media/back.svg">
+                        </button>
+                    </div>
+                    <div class="flex gap-5 items-center">
+                        <button type="button">
+                            <img src="./media/pause-secondary.svg">
+                        </button>
+                        <button type="button">
+                            <img src="./media/play.svg">
+                        </button>
+                        <button type="button">
+                            <img src="./media/delete.svg">
+                        </button>
+                    </div>
+                </div>
+                <div class="table-responsive col-span-12">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col" class="!text-start">
+                                    <div class="flex">
+                                        <input type="checkbox">
+                                    </div>
+                                </th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">State</th>
+                                <th scope="col">Size</th>
+                                <th scope="col">Added</th>
+                                <th scope="col">Options</th>
+                            </tr>
+                        </thead>
+                        <tbody id="downloadsList">
+                            
+                        </tbody>
+                    </table>
+                
+                
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="./assets/js/bundle.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <script>
+        $("#back").on('click',function(){
+            $(location).prop('href', 'index.html')
+        })
+        $("#search").on('click',function(){
+            $(location).prop('href', 'index.html')
+        })
+
+        $(document).ready(function(){
+            window.electronAPI.getDownloadList()
+        })
+
+        function pause(id)
+        {
+            window.electronAPI.puseDownloadItem(id)
+        }
+
+        function cancel(id)
+        {
+            window.electronAPI.cancelDownloadItem(id)
+        }
+
+        function resumeDownload(id)
+        {
+            window.electronAPI.resumeDownload(id)
+        }
+
+        function openFile(id)
+        {
+            window.electronAPI.openFile(id)
+        }
+    </script>
+</body>
+
+</html>

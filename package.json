@@ -1,0 +1,29 @@
+{
+  "name": "downloader-electron",
+  "version": "1.0.0",
+  "description": "Downloader app for soft360.co",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ahmadrezagh/downloader-electron-js.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ahmadrezagh/downloader-electron-js/issues"
+  },
+  "homepage": "https://github.com/Ahmadrezagh/downloader-electron-js#readme",
+  "devDependencies": {
+    "electron": "^17.0.0",
+    "electron-packager": "^15.4.0"
+  },
+  "dependencies": {
+    "axios": "^0.26.0",
+    "electron-download-manager": "^2.1.2",
+    "jquery": "^3.6.0"
+  }
+}
